@@ -9,10 +9,8 @@ import obj.Color;
 import obj.Coordinates;
 import obj.Location;
 
-
-
 public class EnterNewPerson {
-	
+
 	private String name;
 	private Coordinates coordinates;
 	private String passportID;
@@ -21,66 +19,66 @@ public class EnterNewPerson {
 	private String birthsday;
 	private String birthsday2;
 	private long id;
-	private Double height=0d;
-	private Double xcor=0d;
-	private float ycor=0f;
-	private Integer color=0;
-	private int xloc=0;
-	private long yloc=0;
-	private long zloc=0;
-	private int year=0;
-	private int day=0;
-	private int month=0;
-	
+	private Double height = 0d;
+	private Double xcor = 0d;
+	private float ycor = 0f;
+	private Integer color = 0;
+	private int xloc = 0;
+	private long yloc = 0;
+	private long zloc = 0;
+	private int year = 0;
+	private int day = 0;
+	private int month = 0;
+
 	private InputStreamReader r2 = new InputStreamReader(System.in);
 	private BufferedReader br2 = new BufferedReader(r2);
 	private String keyWord2 = null;
-	
-	EnterNewPerson(long id){
+
+	EnterNewPerson(long id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public Coordinates getCord() {
 		return coordinates;
-		
+
 	}
-	
+
 	public Double getHeight() {
 		return height;
 	}
-	
+
 	public long getID() {
 		return id;
 	}
-	
+
 	public String getPassportID() {
 		return passportID;
 	}
-	
+
 	public Color getEyeColor() {
 		return eyeColor;
 	}
-	
+
 	public Location getLocation() {
 		return location;
 	}
-	
+
 	public String getBirthsday() {
 		return birthsday;
 	}
-	
+
 	public String getBirthsday2() {
 		return birthsday2;
 	}
-	
+
 	public void getPersonInfo() {
 
 		System.out.println("Do you realy want to make changes here? [yes/no]");
-		
+
 		try {
 			keyWord2 = br2.readLine();
 		} catch (IOException e) {
@@ -89,7 +87,7 @@ public class EnterNewPerson {
 		if (keyWord2.equals("no")) {
 			System.out.println("restart to start again");
 			System.exit(0);
-			
+
 		} else {
 			do {
 				System.out.println("Enter name!");
@@ -99,13 +97,13 @@ public class EnterNewPerson {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-					
+
 			} while (keyWord2.isEmpty());
 
 		}
-		
+
 		do {
-			 System.out.println("Enter x coordinate!");
+			System.out.println("Enter x coordinate!");
 			try {
 				keyWord2 = br2.readLine();
 			} catch (IOException e) {
@@ -119,7 +117,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (xcor==0);
+		} while (xcor == 0);
 
 		do {
 			System.out.println("Enter y coordinate!");
@@ -136,7 +134,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (ycor==0);
+		} while (ycor == 0);
 
 		Coordinates newCoordinates = new Coordinates((xcor), (ycor));
 		coordinates = newCoordinates;
@@ -163,7 +161,7 @@ public class EnterNewPerson {
 				}
 
 			}
-		} while (height==0);
+		} while (height == 0);
 
 		do {
 			System.out.println("Enter passportID!");
@@ -177,7 +175,7 @@ public class EnterNewPerson {
 				passportID = keyWord2;
 				// System.out.println(name);
 			}
-		} while (passportID==null);
+		} while (passportID == null);
 
 		do {
 			System.out.println("Choose eay color 1-5 (" + Arrays.toString(Color.values()) + "): ");
@@ -200,7 +198,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (color==0||color<1||color>5);
+		} while (color == 0 || color < 1 || color > 5);
 
 		do {
 			System.out.println("Enter x location!");
@@ -217,7 +215,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (xloc==0);
+		} while (xloc == 0);
 
 		do {
 			System.out.println("Enter y location!");
@@ -234,7 +232,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (yloc==0);
+		} while (yloc == 0);
 
 		do {
 			System.out.println("Enter z location!");
@@ -251,14 +249,14 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (zloc==0);
+		} while (zloc == 0);
 
 		Location newLocation = new Location((xloc), (yloc), (zloc));
 		location = newLocation;
-		
+
 		enterNewBirthsday();
 	}
-	
+
 	public void enterNewBirthsday() {
 
 		do {
@@ -276,7 +274,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (year==0||year<1000||year>2022);
+		} while (year == 0 || year < 1000 || year > 2022);
 
 		do {
 			System.out.println("Enter birth month!");
@@ -292,7 +290,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (month==0||month<1||month>12);
+		} while (month == 0 || month < 1 || month > 12);
 
 		do {
 			System.out.println("Enter birth date!");
@@ -308,7 +306,7 @@ public class EnterNewPerson {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (day==0||day<1||day>31);
+		} while (day == 0 || day < 1 || day > 31);
 
 		String month2 = Integer.toString(month);
 		String year2 = Integer.toString(year);
@@ -322,7 +320,7 @@ public class EnterNewPerson {
 		}
 
 		birthsday = month2 + "/" + day2 + "/" + year2;
-		birthsday2=year2+"-"+month2+"-"+day2;
-		
+		birthsday2 = year2 + "-" + month2 + "-" + day2;
+
 	}
 }

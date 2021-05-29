@@ -5,15 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-
 public class User {
-	
-	private String ret,com;
+
+	private String ret, com;
 	private ArrayList<String> commands = new ArrayList<String>();
 	private String replaceID, replaceIDNew;
 	private BufferedReader reader;
-	private Long id=0L;
-	
+	private Long id = 0L;
+
 	public void add() {
 		commands.add("help");
 		commands.add("show");
@@ -36,23 +35,26 @@ public class User {
 
 	public String inputRead() throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		com = reader.readLine();		
-		com = check(com);     
-	    return com;
+		com = reader.readLine();
+		com = check(com);
+		return com;
 	}
-	
+
 	public String check(String ob) {
 		add();
-		if(commands.contains(ob)) {ret=ob;}else {ret=null;}
+		if (commands.contains(ob)) {
+			ret = ob;
+		} else {
+			ret = null;
+		}
 		return ret;
 	}
-	
-	
+
 	public String inputID(String remOption) throws IOException {
-		reader = new BufferedReader(new InputStreamReader(System.in));		
+		reader = new BufferedReader(new InputStreamReader(System.in));
 		do {
-			System.out.println("Enter ID you wannt to "+remOption+"!");
-			com = reader.readLine();		
+			System.out.println("Enter ID you wannt to " + remOption + "!");
+			com = reader.readLine();
 			if (com != null && !com.isEmpty()) {
 				try {
 					id = Long.parseLong(com);
@@ -60,17 +62,17 @@ public class User {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (id==0);
-		
+		} while (id == 0);
+
 		return String.valueOf(id);
 	}
-	
+
 	public String inputKey() throws IOException {
-		reader = new BufferedReader(new InputStreamReader(System.in));	
+		reader = new BufferedReader(new InputStreamReader(System.in));
 		do {
 			System.out.println("Enter key from which you want to remove!");
 			com = reader.readLine();
-			
+
 			if (com != null && !com.isEmpty()) {
 				try {
 					id = Long.parseLong(com);
@@ -78,55 +80,57 @@ public class User {
 					System.out.print("Value is NOT VALID - ");
 				}
 			}
-		} while (id==0);
-		
+		} while (id == 0);
+
 		return String.valueOf(id);
 	}
-	
+
 	public void inputGreaterID() throws IOException {
 		reader = new BufferedReader(new InputStreamReader(System.in));
-		Long id=0L;
-		Long idNew=0L;
-		while(id>=idNew) {
-		do {
-			System.out.println("Enter ID to replace!");
-			com = reader.readLine();
-			
-			if (com != null && !com.isEmpty()) {
-				try {
-					id = Long.parseLong(com);
-				} catch (NumberFormatException nfe) {
-					System.out.print("Value is NOT VALID - ");
+		Long id = 0L;
+		Long idNew = 0L;
+		while (id >= idNew) {
+			do {
+				System.out.println("Enter ID to replace!");
+				com = reader.readLine();
+
+				if (com != null && !com.isEmpty()) {
+					try {
+						id = Long.parseLong(com);
+					} catch (NumberFormatException nfe) {
+						System.out.print("Value is NOT VALID - ");
+					}
 				}
-			}
-		} while (id==0);
-		
-		do {
-			System.out.println("Enter NEW ID!");
-			com = reader.readLine();
-			
-			if (com != null && !com.isEmpty()) {
-				try {
-					idNew = Long.parseLong(com);
-				} catch (NumberFormatException nfe) {
-					System.out.print("Value is NOT VALID - ");
+			} while (id == 0);
+
+			do {
+				System.out.println("Enter NEW ID!");
+				com = reader.readLine();
+
+				if (com != null && !com.isEmpty()) {
+					try {
+						idNew = Long.parseLong(com);
+					} catch (NumberFormatException nfe) {
+						System.out.print("Value is NOT VALID - ");
+					}
 				}
-			}
-			if(id>=idNew) {System.out.print("The New ID is not greater then the old one - ");}
-		} while (idNew==0);
+				if (id >= idNew) {
+					System.out.print("The New ID is not greater then the old one - ");
+				}
+			} while (idNew == 0);
 		}
-	
+
 		replaceID = String.valueOf(id);
 		replaceIDNew = String.valueOf(idNew);
-		
+
 	}
-	
+
 	public String getRepId() {
 		return replaceID;
 	}
+
 	public String getNewId() {
 		return replaceIDNew;
 	}
-	
-	
+
 }
